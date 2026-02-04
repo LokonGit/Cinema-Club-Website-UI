@@ -1,0 +1,273 @@
+.cinebot-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-red), #c62e3a);
+  border: none;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cinebot-toggle svg {
+  width: 30px;
+  height: 30px;
+}
+
+.cinebot-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(230, 57, 70, 0.6);
+}
+
+.cinebot-toggle.open {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-red);
+}
+
+.cinebot-panel {
+  position: fixed;
+  bottom: 110px;
+  right: 30px;
+  width: 450px;
+  max-height: 600px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+  border: 1px solid rgba(230, 57, 70, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.cinebot-panel.open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.cinebot-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(168, 178, 209, 0.1);
+}
+
+.cinebot-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.cinebot-title h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  color: var(--text-white);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.ai-badge {
+  padding: 0.3rem 0.8rem;
+  background: rgba(230, 57, 70, 0.15);
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--primary-red);
+  letter-spacing: 1px;
+}
+
+.cinebot-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cinebot-messages {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: 350px;
+}
+
+.cinebot-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cinebot-messages::-webkit-scrollbar-thumb {
+  background: rgba(230, 57, 70, 0.3);
+  border-radius: 3px;
+}
+
+.message {
+  margin-bottom: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.message-content {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 85%;
+}
+
+.message.user .message-content {
+  background: var(--primary-red);
+  color: var(--text-white);
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+  float: right;
+  clear: both;
+}
+
+.message.assistant .message-content {
+  background: rgba(168, 178, 209, 0.1);
+  color: var(--text-white);
+  border-bottom-left-radius: 5px;
+}
+
+.message.assistant .message-content strong {
+  color: var(--primary-red);
+  font-weight: 600;
+}
+
+.typing {
+  display: flex;
+  gap: 0.3rem;
+  padding: 1rem 1.5rem !important;
+}
+
+.typing span {
+  width: 8px;
+  height: 8px;
+  background: var(--text-gray);
+  border-radius: 50%;
+  animation: typing 1.4s ease-in-out infinite;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+.cinebot-input {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(168, 178, 209, 0.1);
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.cinebot-textarea {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  background: rgba(10, 14, 26, 0.5);
+  border: 1px solid rgba(168, 178, 209, 0.2);
+  border-radius: 12px;
+  color: var(--text-white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  resize: none;
+}
+
+.cinebot-textarea:focus {
+  outline: none;
+  border-color: var(--primary-red);
+  background: rgba(10, 14, 26, 0.8);
+}
+
+.cinebot-textarea::placeholder {
+  color: var(--text-gray);
+}
+
+.suggest-btn {
+  padding: 0.8rem 1.5rem;
+  background: var(--primary-red);
+  border: none;
+  border-radius: 12px;
+  color: var(--text-white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.suggest-btn:hover:not(:disabled) {
+  background: #c62e3a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+}
+
+.suggest-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cinebot-panel {
+    width: calc(100vw - 40px);
+    right: 20px;
+    bottom: 100px;
+    max-height: 500px;
+  }
+
+  .cinebot-toggle {
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .cinebot-toggle svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .cinebot-messages {
+    max-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cinebot-input {
+    flex-direction: column;
+  }
+
+  .suggest-btn {
+    width: 100%;
+  }
+}
