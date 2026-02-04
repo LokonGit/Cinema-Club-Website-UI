@@ -3,12 +3,12 @@ A stunning, AI-powered movie recommendation website built with React + Vite.
 
 ## Features
 
-- 🎬 **Dynamic Hero Section** with animated genre text and rotating background banners
-- 🎨 **Beautiful Movie Gallery** with genre filters and search functionality
-- 🤖 **AI-Powered CineBot** for personalized movie recommendations
-- 📱 **Fully Responsive** design for all screen sizes
-- ✨ **Smooth Animations** throughout the interface
-- 🎭 **Cinematic Design** with bold typography and dramatic effects
+- **Dynamic Hero Section** with animated genre text and rotating background banners
+- **Beautiful Movie Gallery** with genre filters and search functionality
+- **AI-Powered CineBot** for personalized movie recommendations
+- **Fully Responsive** design for all screen sizes
+- **Smooth Animations** throughout the interface
+- **Cinematic Design** with bold typography and dramatic effects
 
 ## Tech Stack
 
@@ -24,6 +24,11 @@ A stunning, AI-powered movie recommendation website built with React + Vite.
 - npm 
 
 ### Steps
+
+1. ** Clone Repo **
+   ```bash
+   git  clone https://github.com/LokonGit/Cinema-Club-Website-UI.git
+   ```
 
 1. **Install dependencies**
    ```bash
